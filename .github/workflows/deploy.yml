@@ -17,6 +17,9 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: 12
+            - uses: actions/setup-python@v1
+              with:
+                  python-version: '3.x'
             - name: Install
               run: make install-no-clean
             - name: Lint
@@ -33,4 +36,5 @@ jobs:
               env:
                   AWS_ACCESS_KEY_ID: AKIAI7UGX6DIYLET2UAA
                   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  GITHUB_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
               run: STAGE=prod make deploy

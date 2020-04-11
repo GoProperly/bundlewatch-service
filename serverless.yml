@@ -15,12 +15,8 @@ custom:
       migrate: true
       inMemory: true
   githubClientId:
-    dev: '04fcf325dd26ca2a159f'
-    stage: '04fcf325dd26ca2a159f'
-    prod: '04fcf325dd26ca2a159f'
+    prod: 'd4f4bd6674ae1d29a155'
   githubClientSecret:
-    dev: ${env:GITHUB_CLIENT_SECRET}
-    stage: ${env:GITHUB_CLIENT_SECRET}
     prod: ${env:GITHUB_CLIENT_SECRET}
   customDomain:
     domainName: bundlewatch.goproperly.com

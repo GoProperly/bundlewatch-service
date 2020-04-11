@@ -25,11 +25,12 @@ jobs:
               run: make test
             - name: Build
               run: make package
+            - name: Install Deployment Deps
+              if: github.ref == 'refs/heads/master'
+              run: make install-deployment-deps
             - name: Deploy
               if: github.ref == 'refs/heads/master'
               env:
                   AWS_ACCESS_KEY_ID: AKIAI7UGX6DIYLET2UAA
                   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              run: |
-                  make install-deployment-deps
-                  STAGE=prod make deploy
+              run: STAGE=prod make deploy

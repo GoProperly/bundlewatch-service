@@ -28,9 +28,14 @@ jobs:
               run: make test
             - name: Build
               run: make package
+#            - name: Install Deployment Deps
+#              if: github.ref == 'refs/heads/master'
+#              run: make install-deployment-deps
             - name: Install Deployment Deps
               if: github.ref == 'refs/heads/master'
-              run: make install-deployment-deps
+              run: |
+                  npm install -g serverless
+                  python -m pip install --upgrade pip setuptools awscli
             - name: Deploy
               if: github.ref == 'refs/heads/master'
               env:

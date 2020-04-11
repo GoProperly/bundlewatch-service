@@ -32,6 +32,9 @@ provider:
   name: aws
   region: us-east-1
   runtime: nodejs12.x
+  stackTags:
+      PROPERLY_STAGE: ${self:custom.stage}
+      PROPERLY_CODE_ORIGIN_URL: https://github.com/GoProperly/bundlewatch-service/
   memorySize: 512
   timeout: 30
   iamRoleStatements:

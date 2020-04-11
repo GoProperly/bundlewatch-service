@@ -6,7 +6,7 @@ export PATH := $(shell yarn bin):$(PATH)
 ifdef CI
     ESLINT_ARGS=--format junit --output-file $(ARTIFACT_DIR)/test_results/eslint/eslint.junit.xml
 	JEST_ENV_VARIABLES=JEST_SUITE_NAME="Jest Tests" JEST_JUNIT_OUTPUT=$(ARTIFACT_DIR)/test_results/jest/jest.junit.xml
-	JEST_ARGS=--testResultsProcessor ./node_modules/jest-junit --coverageReporters=text-lcov | coveralls
+	JEST_ARGS=--testResultsProcessor ./node_modules/jest-junit --coverageReporters=text-lcov
 	YARN_ARGS=--frozen-lockfile
 else
     ESLINT_ARGS=

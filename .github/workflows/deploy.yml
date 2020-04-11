@@ -17,6 +17,9 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: 12
+            - name: actions/setup-python@v1
+              with:
+                  python-version: '3.x'
             - name: Install
               run: make install-no-clean
             - name: Lint
